@@ -85,6 +85,8 @@ const explore = [
 	require('../assets/images/explore_6.png'),
 ];
 
+const splash = require('../assets/icon.png');
+const avatar = require('../assets/images/avatar.png');
 const profile = {
 	username: 'Lorem Ipsum',
 	location: 'Lorem Ipsum Dolar',
@@ -96,4 +98,4 @@ const profile = {
 	newsletter: false,
 };
 
-export { categories, products, profile, explore };
+export { categories, products, profile, explore, splash, avatar };
