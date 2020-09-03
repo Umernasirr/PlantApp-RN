@@ -4,7 +4,7 @@ import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 export default CardDisplay = ({ image, text, count }) => (
 	<Card style={styles.card}>
 		<TouchableOpacity>
-			<Avatar size="medium" style={styles.image} source={image}></Avatar>
+			<Avatar size="large" style={styles.image} source={image}></Avatar>
 			<Text style={styles.text}>{text}</Text>
 			<Text appearance="hint" style={styles.count}>
 				{count} products
@@ -15,12 +15,12 @@ export default CardDisplay = ({ image, text, count }) => (
 
 const styles = StyleSheet.create({
 	card: {
-		height: 130,
-		width: 130,
-		marginHorizontal: 10,
-		marginBottom: 10,
+		height: 120,
+		width: 120,
+		marginHorizontal: 20,
+		marginBottom: 20,
 		justifyContent: 'center',
-		backgroundColor: '#f5fffc',
+		// backgroundColor: '#f5fffc',
 	},
 	image: {
 		alignSelf: 'center',

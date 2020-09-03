@@ -38,7 +38,7 @@ const categories = [
 		id: 5,
 		category: 'pots',
 		name: 'Pots',
-		tags: ['products', 'inspirations'],
+		tags: ['products'],
 		count: 35,
 		image: require('../assets/icons/pots.png'),
 	},

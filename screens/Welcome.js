@@ -8,9 +8,9 @@ const Welcome = ({ navigation }) => {
 	return (
 		<Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 			<Layout style={styles.mainText}>
-				<Text category="h2">Your Home.</Text>
+				<Text category="h2">Plant.</Text>
 				<Text style={styles.bold} category="h2" status="success">
-					Greener.
+					Healthy.
 				</Text>
 			</Layout>
 			<Text appearance="hint">Enjoy the experience</Text>

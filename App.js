@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
@@ -22,10 +23,16 @@ import Browse from './screens/Browse';
 import SignUp from './screens/SignUp';
 
 import { theme } from './constants';
+
+import { Ionicons } from '@expo/vector-icons';
+// <Ionicons name="ios-home" size={24} color="black" />
+// <Ionicons name="ios-settings" size={24} color="black" />
 const ScreenStack = createStackNavigator();
 
 const AuthStack = createStackNavigator();
 const MainStack = createStackNavigator();
+const BottomTabStack = createBottomTabNavigator();
+
 const AuthScreenStack = () => {
 	return (
 		<AuthStack.Navigator initialRouteName="Welcome">
@@ -44,10 +51,38 @@ const MainScreenStack = () => {
 	);
 };
 
+const BottomScreenStack = () => {
+	return (
+		<BottomTabStack.Navigator initialRouteName="Home">
+			<BottomTabStack.Screen
+				name="Home"
+				component={MainScreenStack}
+				options={{
+					title: 'Home',
+					tabBarIcon: () => <Ionicons name="ios-home" size={24} color="black" />,
+				}}
+			/>
+			<BottomTabStack.Screen
+				name="Settings"
+				component={Settings}
+				options={{
+					title: 'Settings',
+					tabBarIcon: () => <Ionicons name="ios-settings" size={24} color="black" />,
+				}}
+			/>
+		</BottomTabStack.Navigator>
+	);
+};
+
 const Screen = () => (
-	<ScreenStack.Navigator initialRouteName="AuthScreenStack">
+	<ScreenStack.Navigator
+		screenOptions={{
+			animationEnabled: false,
+		}}
+		initialRouteName="MainScreenStack"
+	>
 		<ScreenStack.Screen options={{ headerShown: false }} name="AuthScreenStack" component={AuthScreenStack} />
-		<ScreenStack.Screen options={{ headerShown: false }} name="MainScreenStack" component={MainScreenStack} />
+		<ScreenStack.Screen options={{ headerShown: false }} name="MainScreenStack" component={BottomScreenStack} />
 	</ScreenStack.Navigator>
 );
 
